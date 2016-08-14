@@ -7,14 +7,14 @@
 int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral)
 {
 
-  if (toupper(firstNumeral [0]) == 'I') {
-    if (toupper(secondNumeral [0]) == 'I' && toupper(secondNumeral [1]) == 'I') {
+  if (toupper(firstNumeral [0]) == 'I' && toupper(firstNumeral [1]) == 'I' && toupper( secondNumeral [0] == 'I')) {
       strcpy (resultNumeral, "III");
-    }
-    else
-      if (toupper (secondNumeral [0]) == 'I') {
-	    strcpy (resultNumeral, "II");
-      }
+  }
+  else if (toupper(firstNumeral[0]) == 'I' && toupper(secondNumeral [0]) == 'I' && toupper(secondNumeral [1]) == 'I') {
+      strcpy (resultNumeral, "III");
+  }
+  else if (toupper (firstNumeral [0]) == 'I' && toupper (secondNumeral [0]) == 'I') {
+    strcpy (resultNumeral, "II");
   }
 
   return (1);
