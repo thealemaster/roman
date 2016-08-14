@@ -1,0 +1,4 @@
+check_roman_calculator
+*.a
+*.o
+*~
