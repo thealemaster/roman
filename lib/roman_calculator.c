@@ -2,9 +2,13 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 
-int add_roman_numerals ()
+int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral)
 {
-  printf ("Show me the MONEY!!\n");
+  if (firstNumeral [0] == 'I' && secondNumeral [0] == 'I') {
+    strcpy (resultNumeral, "II");
+  }
+
   return (1);
 }

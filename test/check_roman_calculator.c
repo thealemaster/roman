@@ -1,14 +1,15 @@
 #include <stdlib.h>
 #include <check.h>
 
-extern int add_roman_numerals ();
+extern int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral);
 
-START_TEST (first_test_case)
+START_TEST (adding_I_and_I_equals_II)
 {
   int statusReturned;
+  char firstNumeral [2] = "I", secondNumeral [2] = "I", resultNumeral [2];
 
-  statusReturned = add_roman_numerals ();
-  ck_assert_int_eq (statusReturned, 1);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "II");
 }
 END_TEST
 
@@ -22,7 +23,7 @@ Suite * roman_calculator_test_suite(void)
     /* Core test case */
     testCase = tcase_create("Main");
 
-    tcase_add_test(testCase, first_test_case);
+    tcase_add_test(testCase, adding_I_and_I_equals_II);
     suite_add_tcase(testSuite, testCase);
 
     return testSuite;
