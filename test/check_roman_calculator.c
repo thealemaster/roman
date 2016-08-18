@@ -26,19 +26,30 @@ END_TEST
 START_TEST (adding_I_and_II_equals_III)
 {
   int statusReturned;
-  char firstNumeral [2] = "I", secondNumeral [2] = "II", resultNumeral [2];
+  char firstNumeral [2] = "I", secondNumeral [2] = "II", resultNumeral [3];
 
   statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
   ck_assert_str_eq (resultNumeral, "III");
 }
 END_TEST
+
 START_TEST (adding_II_and_I_equals_III)
 {
   int statusReturned;
-  char firstNumeral [2] = "II", secondNumeral [2] = "I", resultNumeral [2];
+  char firstNumeral [2] = "II", secondNumeral [2] = "I", resultNumeral [3];
 
   statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
   ck_assert_str_eq (resultNumeral, "III");
+}
+END_TEST
+
+START_TEST (passing_invalid_roman_numeral_returns_error)
+{
+  int statusReturned;
+  char firstNumeral [2] = "A", secondNumeral [2] = "I", resultNumeral [2];
+
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_int_eq (statusReturned, 0);
 }
 END_TEST
 
@@ -56,6 +67,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(testCase, check_lower_case_by_adding_i_and_i_to_equal_II);
     tcase_add_test(testCase, adding_I_and_II_equals_III);
     tcase_add_test(testCase, adding_II_and_I_equals_III);
+    tcase_add_test(testCase, passing_invalid_roman_numeral_returns_error);
 
     suite_add_tcase(testSuite, testCase);
 

@@ -8,9 +8,17 @@ int convertRomanNumeralToDecimal (char romanNumeralToConvert)
 {
   int convertedRomanNumeral = 0;
 
-  if (romanNumeralToConvert = 'I') {
-    convertedRomanNumeral = 1;
-  }
+  if (romanNumeralToConvert == 'I' ||
+      romanNumeralToConvert == 'V' ||
+      romanNumeralToConvert == 'X' ||
+      romanNumeralToConvert == 'L' ||
+      romanNumeralToConvert == 'C' ||
+      romanNumeralToConvert == 'D' ||
+      romanNumeralToConvert == 'M') {
+    if (romanNumeralToConvert == 'I') {
+      convertedRomanNumeral = 1;
+    }
+  } 
 
   return (convertedRomanNumeral);
 }
@@ -39,6 +47,12 @@ int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNume
 
   while (toupper(firstNumeral[numeralArrayIndex])) {
     firstConvertedNumeral = firstConvertedNumeral + convertRomanNumeralToDecimal (toupper(firstNumeral[numeralArrayIndex]));
+
+    /* If the number we get back is a 0, we have an invalid number */
+    if (firstConvertedNumeral == 0) {
+      return (0);
+    }
+
     numeralArrayIndex++;
   }
 
@@ -46,6 +60,12 @@ int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNume
 
   while (toupper(secondNumeral[numeralArrayIndex])) {
     secondConvertedNumeral = secondConvertedNumeral + convertRomanNumeralToDecimal (toupper(secondNumeral[numeralArrayIndex]));
+
+    /* If the number we get back is a 0, we have an invalid number */
+    if (firstConvertedNumeral == 0) {
+      return (0);
+    }
+
     numeralArrayIndex++;
   }
 
