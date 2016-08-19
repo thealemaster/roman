@@ -14,3 +14,8 @@ the Falcon project. A couple of caveats to throw out there:
   other things I could have done to explore all the nuances
   of roman arithmetic. Instead, I tried to stick to the
   rules of the exercise and not go too far off script
+- Once the test for > 3999 was added, I realized that
+  I hadn't added enough logic for that test to fail
+  normally (the code didn't handle all the numbers yet).
+  This is why you will notice a jump in logic in the
+  convertRomanToDecimal for that test

@@ -5,25 +5,39 @@
 #include <string.h>
 #include <ctype.h>
 
+#include "calculate_roman.h"
+
 int convertRomanNumeralToDecimal (char romanNumeralToConvert) 
 {
-  int convertedRomanNumeral = 0;
+  int convertedRomanNumeral;
 
-  if (romanNumeralToConvert == 'I' ||
-      romanNumeralToConvert == 'V' ||
-      romanNumeralToConvert == 'X' ||
-      romanNumeralToConvert == 'L' ||
-      romanNumeralToConvert == 'C' ||
-      romanNumeralToConvert == 'D' ||
-      romanNumeralToConvert == 'M') {
-    if (romanNumeralToConvert == 'I') {
-      convertedRomanNumeral = 1;
-    }
-    if (romanNumeralToConvert == 'V') {
-      convertedRomanNumeral = 5;
-    }
-
-  } 
+  switch (romanNumeralToConvert) {
+  case ('I') :
+    convertedRomanNumeral = 1;
+    break;
+  case ('V') :
+    convertedRomanNumeral = 5;
+    break;
+  case ('X') :
+    convertedRomanNumeral = 10;
+    break;
+  case ('L') :
+    convertedRomanNumeral = 50;
+    break;
+  case ('C') :
+    convertedRomanNumeral = 100;
+    break;
+  case ('D') :
+    convertedRomanNumeral = 500;
+    break;
+  case ('M') :
+    convertedRomanNumeral = 1000;
+    break;
+  default:
+    /* If it's not already one of the numbers above, it's an error */
+    convertedRomanNumeral = 0;
+    break;
+  }
 
   return (convertedRomanNumeral);
 }
@@ -105,10 +119,15 @@ int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNume
    }
   }
 
+  if (firstConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE || 
+      secondConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE ) {
+    return (0);
+  }
+
   /* Initialize the output string to NULLs */
   numeralArrayIndex = 0;
 
-  while (numeralArrayIndex < 10) {
+  while (numeralArrayIndex < MAX_ROMAN_NUMERAL_STRING_SIZE) {
     resultNumeral [numeralArrayIndex] = '\0';
     numeralArrayIndex++;
   }
