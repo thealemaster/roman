@@ -1,5 +1,9 @@
+CC=gcc -I ../include
+
+CFLAGS=-Wall -c
+
 all: roman_calculator.o
-	gcc -c roman_calculator.c
+	$(CC) $(INCLUDES) $(CFLAGS) roman_calculator.c
 	ar -rcs libroman_calculator.a roman_calculator.o
 clean:
 	$(RM) libroman_calculator.a roman_calculator.o

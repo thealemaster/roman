@@ -1,5 +1,7 @@
+CC=gcc -I ../include
+
 all:
-	gcc -c check_roman_calculator.c
+	$(CC) -c check_roman_calculator.c
 
 clean:
 	rm check_roman_calculator.o

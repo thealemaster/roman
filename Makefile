@@ -1,10 +1,12 @@
+CC= gcc -I include
+
 VPATH = lib test
 
 # Compiler flags set to most strict
 CFLAGS = -Wall -g
 
 # Place where header files for this project will go
-INCLUDES = -I./include
+#INCLUDES = -I./include
 
 # Make sure the compiler knows where the libary lives
 LIBFLAGS = -L./lib
@@ -23,7 +25,7 @@ check_roman_calculator.o: check_roman_calculator.c
 test:	check_roman_calculator.o libroman_calculator.a
 	cd test;make
 	cd lib;make
-	gcc $(CFLAGS) $(INCLUDES) -o check_roman_calculator test/check_roman_calculator.o -pthread $(LIBFLAGS) $(LIBS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o check_roman_calculator test/check_roman_calculator.o -pthread $(LIBFLAGS) $(LIBS)
 
 clean:
 	-cd test;make clean
