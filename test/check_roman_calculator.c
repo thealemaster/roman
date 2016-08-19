@@ -53,6 +53,16 @@ START_TEST (passing_invalid_roman_numeral_returns_error)
 }
 END_TEST
 
+START_TEST (lesser_numeral_before_greater_numeral_means_subtraction)
+{
+  int statusReturned;
+  char firstNumeral [2] = "IV", secondNumeral [2] = "I", resultNumeral [3];
+
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "V");
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -68,6 +78,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(testCase, adding_I_and_II_equals_III);
     tcase_add_test(testCase, adding_II_and_I_equals_III);
     tcase_add_test(testCase, passing_invalid_roman_numeral_returns_error);
+    tcase_add_test(testCase, lesser_numeral_before_greater_numeral_means_subtraction);
 
     suite_add_tcase(testSuite, testCase);
 
