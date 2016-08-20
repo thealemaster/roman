@@ -80,15 +80,14 @@ void convertDecimalToRomanNumeral (int decimalToConvert, char *convertedNumeral)
 
 }
 
-int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral)
+int parseDecimalFromRoman (char *romanStringToConvert)
 {
-
-  int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
+  int convertedNumeral = 0;
   int numeralArrayIndex = 0;
   int currentNumeral = 0, nextNumeral = 0;
 
-  while (toupper(firstNumeral[numeralArrayIndex])) {
-    currentNumeral = convertRomanNumeralToDecimal (toupper(firstNumeral[numeralArrayIndex]));
+  while (toupper(romanStringToConvert[numeralArrayIndex])) {
+    currentNumeral = convertRomanNumeralToDecimal (toupper(romanStringToConvert[numeralArrayIndex]));
 
     /* If the number we get back is a 0, we have an invalid number */
 
@@ -96,48 +95,45 @@ int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNume
       return (0);
     }
 
-    nextNumeral = convertRomanNumeralToDecimal (toupper(firstNumeral[numeralArrayIndex+1]));
+    nextNumeral = convertRomanNumeralToDecimal (toupper(romanStringToConvert[numeralArrayIndex+1]));
 
     if (currentNumeral < nextNumeral) {
-      firstConvertedNumeral = firstConvertedNumeral + nextNumeral - currentNumeral; 
+      convertedNumeral = convertedNumeral + nextNumeral - currentNumeral; 
 
       /* If we've just used 2 roman digits, update the index accordingly */
       numeralArrayIndex = numeralArrayIndex + 2;
     }
     else {
-      firstConvertedNumeral = firstConvertedNumeral + currentNumeral;
+      convertedNumeral += currentNumeral;
       numeralArrayIndex++;
     }
 
   }
 
-  numeralArrayIndex = 0;
+  return (convertedNumeral);
 
-  while (toupper(secondNumeral[numeralArrayIndex])) {
+}
+ 
+int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral)
+{
 
-    currentNumeral = convertRomanNumeralToDecimal (toupper(secondNumeral[numeralArrayIndex]));
+  int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
+  int numeralArrayIndex = 0;
 
-    /* If the number we get back is a 0, we have an invalid number */
-    if (currentNumeral  == 0) {
+  if ((firstConvertedNumeral = (parseDecimalFromRoman (firstNumeral))) == 0) {
       return (0);
-    }
-
-    nextNumeral = convertRomanNumeralToDecimal (toupper(secondNumeral[numeralArrayIndex+1]));
-
-   if (currentNumeral < nextNumeral) {
-      secondConvertedNumeral = secondConvertedNumeral + nextNumeral - currentNumeral; 
-
-      /* If we've just used 2 roman digits, update the index accordingly */
-      numeralArrayIndex = numeralArrayIndex + 2;
-   }
-   else {
-      secondConvertedNumeral = secondConvertedNumeral + currentNumeral;
-      numeralArrayIndex++;
-   }
   }
+
+  if ((secondConvertedNumeral = (parseDecimalFromRoman (secondNumeral))) == 0) {
+      return (0);
+  }
+
+  /* If either number is greater than the max, or both numbers added are greater than
+     the max, return an error */
 
   if (firstConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE || 
-      secondConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE ) {
+      secondConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE ||
+      (firstConvertedNumeral+secondConvertedNumeral) > MAX_ROMAN_NUMERAL_VALUE) {
     return (0);
   }
 
