@@ -1,10 +1,10 @@
-# roman
+# roman calculator
 
-This is my attempt to complete the Programming Exercise for
-the Falcon project. A couple of caveats to throw out there:
+This is my attempt to complete the Roman Numeral Calculator
+Programming Exercise for Pillar. Some caveats to throw out there:
 - My initial check-in to github is a minimal set of files
   that compile and create a library with no logic, just to
-  set up the structure of the project
+  set up the structure of the project (and to learn git)
 - My first handful of tests were done to give me some
   familiarity with the check testing framework, which is
   new to me. So when you see a deviation of the solution
@@ -19,3 +19,21 @@ the Falcon project. A couple of caveats to throw out there:
   normally (the code didn't handle all the numbers yet).
   This is why you will notice a jump in logic in the
   convertRomanToDecimal for that test
+- After a peer review, I discovered there is a difference
+  between installing check using apt-get and if it had
+  been built in the VM. I added some logic to the Makefiles
+  to detect this and include the right libs
+- Subtraction was an obvious extension to what had already
+  been implemented for addition. The result is there is less
+  test coverage around subtraction
+
+The solution implements the following user stories:
+
+User Story: Addition
+As a Roman bookkeeper, I want to be able to add two numbers together.
+ So that I can do my work faster with fewer mathematical errors.
+
+User Story: Subtraction
+As a Roman bookkeeper, I want to be able to subtract one number from
+ another. So that I can do my work faster and with fewer mathematical errors.
+
