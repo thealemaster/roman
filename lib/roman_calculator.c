@@ -47,18 +47,22 @@ void convertDecimalToRomanNumeral (int decimalToConvert, char *convertedNumeral)
   int remainingDecimalToConvert = decimalToConvert;
   int convertedNumeralArrayIndex = 0;
 
-  while (remainingDecimalToConvert > 0) {
-    /* If the number is less than 4, we're just dealing with I's */
-    if (remainingDecimalToConvert < 4) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'I';
-      remainingDecimalToConvert = remainingDecimalToConvert - 1;
-    }
-    if (remainingDecimalToConvert > 4 && remainingDecimalToConvert < 10) {
+  while (remainingDecimalToConvert > 0 && 
+	 convertedNumeralArrayIndex < MAX_ROMAN_NUMERAL_STRING_SIZE) {
+
+    if (remainingDecimalToConvert >= 1000) {
+      convertedNumeral [convertedNumeralArrayIndex] = 'M';
+      remainingDecimalToConvert -= 1000;
+    } else if (remainingDecimalToConvert > 4 && remainingDecimalToConvert < 10) {
       convertedNumeral [convertedNumeralArrayIndex] = 'V';
-      remainingDecimalToConvert = remainingDecimalToConvert - 5;
+      remainingDecimalToConvert -= 5;
+    } else if (remainingDecimalToConvert < 4) {
+      convertedNumeral [convertedNumeralArrayIndex] = 'I';
+      remainingDecimalToConvert -= 1;
     }
 
     convertedNumeralArrayIndex++;
+
   }
 
 }
