@@ -153,6 +153,17 @@ START_TEST (adding_VI_and_III_equals_IX)
 }
 END_TEST
 
+START_TEST (adding_XX_and_XX_equals_XL)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "XX", secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "XX", resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "XL");
+
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -177,6 +188,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(testCase, adding_X_and_X_equals_XX);
     tcase_add_test(testCase, adding_II_and_II_equals_IV);
     tcase_add_test(testCase, adding_VI_and_III_equals_IX);
+    tcase_add_test(testCase, adding_XX_and_XX_equals_XL);
 
     suite_add_tcase(testSuite, testCase);
 
