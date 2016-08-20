@@ -47,77 +47,36 @@ void convertDecimalToRomanNumeral (int decimalToConvert, char *convertedNumeral)
   int remainingDecimalToConvert = decimalToConvert;
   int convertedNumeralArrayIndex = 0;
 
-  while (remainingDecimalToConvert > 0 && 
-	 convertedNumeralArrayIndex < MAX_ROMAN_NUMERAL_STRING_SIZE) {
+  struct NumeralsMap {
+    char roman_value[3];
+    int decimal_value;
+  } romanToDecimalMap [] = {{"M", 1000},
+                            {"CM", 900},
+                            {"D", 500},
+                            {"CD", 400},
+                            {"C", 100},
+                            {"XC", 90},
+                            {"L", 50},
+                            {"XL", 40},
+                            {"X", 10},
+                            {"IX",9},
+                            {"V", 5},
+                            {"IV", 4},
+                            {"I", 1}};
 
-    if (remainingDecimalToConvert >= 1000) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'M';
-      remainingDecimalToConvert -= 1000;
-    }
-    else if (remainingDecimalToConvert >= 900 && remainingDecimalToConvert < 1000) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'C';
-      convertedNumeral [convertedNumeralArrayIndex+1] = 'M';
-      convertedNumeralArrayIndex++;
-      remainingDecimalToConvert -= 900;
-    }
-    else if (remainingDecimalToConvert >= 500 && remainingDecimalToConvert < 900) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'D';
-      remainingDecimalToConvert -= 500;
-    }
-    else if (remainingDecimalToConvert >= 400 && remainingDecimalToConvert < 500) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'C';
-      convertedNumeral [convertedNumeralArrayIndex+1] = 'D';
-      convertedNumeralArrayIndex++;
-      remainingDecimalToConvert -= 400;
-    }
-    else if (remainingDecimalToConvert >= 100 && remainingDecimalToConvert < 400) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'C';
-      remainingDecimalToConvert -= 100;
-    }
-    else if (remainingDecimalToConvert >= 90 && remainingDecimalToConvert < 100) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'X';
-      convertedNumeral [convertedNumeralArrayIndex+1] = 'C';
-      convertedNumeralArrayIndex++;
-      remainingDecimalToConvert -= 90;
-    }
-    else if (remainingDecimalToConvert >= 50 && remainingDecimalToConvert < 90) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'L';
-      remainingDecimalToConvert -= 50;
-    }
-    else if (remainingDecimalToConvert >= 40 && remainingDecimalToConvert < 50) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'X';
-      convertedNumeral [convertedNumeralArrayIndex+1] = 'L';
-      convertedNumeralArrayIndex++;
-      remainingDecimalToConvert -= 40;
-    }
-    else if (remainingDecimalToConvert >= 10 && remainingDecimalToConvert < 40) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'X';
-      remainingDecimalToConvert -= 10;
-    }
-    else if (remainingDecimalToConvert == 9) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'I';
-      convertedNumeral [convertedNumeralArrayIndex+1] = 'X';
-      convertedNumeralArrayIndex++;
-      remainingDecimalToConvert -= 9;
-    }
-    else if (remainingDecimalToConvert >= 5 && remainingDecimalToConvert < 9) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'V';
-      remainingDecimalToConvert -= 5;
-    }
-    else if (remainingDecimalToConvert == 4) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'I';
-      convertedNumeral [convertedNumeralArrayIndex+1] = 'V';
-      convertedNumeralArrayIndex++;
-      remainingDecimalToConvert -= 4;
-    }
-    else if (remainingDecimalToConvert < 4) {
-      convertedNumeral [convertedNumeralArrayIndex] = 'I';
-      remainingDecimalToConvert -= 1;
-    }
 
-    convertedNumeralArrayIndex++;
+    while (remainingDecimalToConvert > 0 &&
+	   convertedNumeralArrayIndex < MAX_ROMAN_NUMERAL_STRING_SIZE)
+    {
 
-  }
+      while (remainingDecimalToConvert >= romanToDecimalMap[convertedNumeralArrayIndex].decimal_value) {
+        strcat (convertedNumeral, romanToDecimalMap[convertedNumeralArrayIndex].roman_value);
+        remainingDecimalToConvert -= romanToDecimalMap[convertedNumeralArrayIndex].decimal_value;
+      }
+
+      convertedNumeralArrayIndex++;
+
+    }
 
 }
 
