@@ -208,6 +208,28 @@ START_TEST (adding_D_and_D_equals_M)
 }
 END_TEST
 
+START_TEST (adding_L_and_L_equals_C)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "L", secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "L", resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "C");
+
+}
+END_TEST
+
+START_TEST (adding_V_and_V_equals_X)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "V", secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "V", resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "X");
+
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -236,7 +258,8 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(testCase, adding_LX_and_XXX_equals_XC);
     tcase_add_test(testCase, adding_CC_and_CC_equals_CD);
     tcase_add_test(testCase, adding_CD_and_D_equals_CM);
-    tcase_add_test(testCase, adding_D_and_D_equals_M);
+    tcase_add_test(testCase, adding_L_and_L_equals_C);
+    tcase_add_test(testCase, adding_V_and_V_equals_X);
 
     suite_add_tcase(testSuite, testCase);
 
