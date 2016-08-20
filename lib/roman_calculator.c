@@ -162,8 +162,9 @@ int subtract_roman_numerals (char *firstNumeral, char *secondNumeral, char*resul
       return (0);
   }
 
-  /* If the resulting subtraction is 0, we have an invalid number */
-  if (firstConvertedNumeral-secondConvertedNumeral == 0) {
+  /* If the resulting subtraction is less that or equal to 0, 
+     we have an invalid number */
+  if (firstConvertedNumeral-secondConvertedNumeral <= 0) {
     return (0);
   }
 
