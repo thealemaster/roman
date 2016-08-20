@@ -86,6 +86,17 @@ START_TEST (adding_M_and_M_equals_MM)
 }
 END_TEST
 
+START_TEST (adding_CCC_and_CC_equals_D)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "CCC", secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "CC", resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "D");
+
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -104,6 +115,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(testCase, lesser_numeral_before_greater_numeral_means_subtraction);
     tcase_add_test(testCase, passing_roman_numeral_greater_than_3999_returns_error);
     tcase_add_test(testCase, adding_M_and_M_equals_MM);
+    tcase_add_test(testCase, adding_CCC_and_CC_equals_D);
 
     suite_add_tcase(testSuite, testCase);
 
