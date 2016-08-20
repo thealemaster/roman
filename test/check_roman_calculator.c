@@ -249,6 +249,17 @@ START_TEST (subtracting_VI_from_V_results_in_invalid_number)
 }
 END_TEST
 
+START_TEST (subtracting_I_from_X_results_in_IX)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "X", secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "I", resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "IX");
+
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -281,6 +292,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(testCase, adding_V_and_V_equals_X);
     tcase_add_test(testCase, subtracting_V_and_V_results_in_invalid_number);
     tcase_add_test(testCase, subtracting_VI_from_V_results_in_invalid_number);
+    tcase_add_test(testCase, subtracting_I_from_X_results_in_IX);
 
     suite_add_tcase(testSuite, testCase);
 

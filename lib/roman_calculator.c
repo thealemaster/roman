@@ -153,6 +153,7 @@ int subtract_roman_numerals (char *firstNumeral, char *secondNumeral, char*resul
 {
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
+  int numeralArrayIndex = 0;
 
   if ((firstConvertedNumeral = (parseDecimalFromRoman (firstNumeral))) == 0) {
       return (0);
@@ -168,10 +169,14 @@ int subtract_roman_numerals (char *firstNumeral, char *secondNumeral, char*resul
     return (0);
   }
 
-/* I'm pretty darn sure that I'm going to be replicating the logic
-   from add_roman_numerals, but in the spirit of test driving, I'll
-   wait :)
-*/
+  /* Initialize the output string to NULLs */
+  numeralArrayIndex = 0;
+
+  while (numeralArrayIndex < MAX_ROMAN_NUMERAL_STRING_SIZE) {
+    resultNumeral [numeralArrayIndex] = '\0';
+    numeralArrayIndex++;
+  }
+  convertDecimalToRomanNumeral (firstConvertedNumeral - secondConvertedNumeral, resultNumeral);
 
   return (1);
 }
