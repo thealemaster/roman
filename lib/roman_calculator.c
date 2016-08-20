@@ -148,3 +148,29 @@ int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNume
 
   return (1);
 }
+
+int subtract_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral)
+{
+
+  int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
+
+  if ((firstConvertedNumeral = (parseDecimalFromRoman (firstNumeral))) == 0) {
+      return (0);
+  }
+
+  if ((secondConvertedNumeral = (parseDecimalFromRoman (secondNumeral))) == 0) {
+      return (0);
+  }
+
+  /* If the resulting subtraction is 0, we have an invalid number */
+  if (firstConvertedNumeral-secondConvertedNumeral == 0) {
+    return (0);
+  }
+
+/* I'm pretty darn sure that I'm going to be replicating the logic
+   from add_roman_numerals, but in the spirit of test driving, I'll
+   wait :)
+*/
+
+  return (1);
+}
