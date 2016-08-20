@@ -62,6 +62,10 @@ void convertDecimalToRomanNumeral (int decimalToConvert, char *convertedNumeral)
       convertedNumeral [convertedNumeralArrayIndex] = 'C';
       remainingDecimalToConvert -= 100;
     }
+    else if (remainingDecimalToConvert >= 50 && remainingDecimalToConvert < 100) {
+      convertedNumeral [convertedNumeralArrayIndex] = 'L';
+      remainingDecimalToConvert -= 50;
+    }
     else if (remainingDecimalToConvert > 4 && remainingDecimalToConvert < 10) {
       convertedNumeral [convertedNumeralArrayIndex] = 'V';
       remainingDecimalToConvert -= 5;
