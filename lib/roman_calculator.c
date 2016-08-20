@@ -74,6 +74,12 @@ void convertDecimalToRomanNumeral (int decimalToConvert, char *convertedNumeral)
       convertedNumeral [convertedNumeralArrayIndex] = 'V';
       remainingDecimalToConvert -= 5;
     }
+    else if (remainingDecimalToConvert == 4) {
+      convertedNumeral [convertedNumeralArrayIndex] = 'I';
+      convertedNumeral [convertedNumeralArrayIndex+1] = 'V';
+      convertedNumeralArrayIndex++;
+      remainingDecimalToConvert -= 4;
+    }
     else if (remainingDecimalToConvert < 4) {
       convertedNumeral [convertedNumeralArrayIndex] = 'I';
       remainingDecimalToConvert -= 1;

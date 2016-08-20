@@ -3,7 +3,8 @@
 
 #include "calculate_roman.h"
 
-extern int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral);
+/* extern int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral);
+ */
 
 START_TEST (adding_I_and_I_equals_II)
 {
@@ -130,6 +131,17 @@ START_TEST (adding_X_and_X_equals_XX)
 }
 END_TEST
 
+START_TEST (adding_II_and_II_equals_IV)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "II", secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "II", resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "IV");
+
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -152,6 +164,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(testCase, adding_C_and_C_equals_CC);
     tcase_add_test(testCase, adding_XXX_and_XX_equals_L);
     tcase_add_test(testCase, adding_X_and_X_equals_XX);
+    tcase_add_test(testCase, adding_II_and_II_equals_IV);
 
     suite_add_tcase(testSuite, testCase);
 
