@@ -54,7 +54,13 @@ void convertDecimalToRomanNumeral (int decimalToConvert, char *convertedNumeral)
       convertedNumeral [convertedNumeralArrayIndex] = 'M';
       remainingDecimalToConvert -= 1000;
     }
-    else if (remainingDecimalToConvert >= 500 && remainingDecimalToConvert < 1000) {
+    else if (remainingDecimalToConvert >= 900 && remainingDecimalToConvert < 1000) {
+      convertedNumeral [convertedNumeralArrayIndex] = 'C';
+      convertedNumeral [convertedNumeralArrayIndex+1] = 'M';
+      convertedNumeralArrayIndex++;
+      remainingDecimalToConvert -= 900;
+    }
+    else if (remainingDecimalToConvert >= 500 && remainingDecimalToConvert < 900) {
       convertedNumeral [convertedNumeralArrayIndex] = 'D';
       remainingDecimalToConvert -= 500;
     }
