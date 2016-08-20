@@ -175,6 +175,17 @@ START_TEST (adding_LX_and_XXX_equals_XC)
 }
 END_TEST
 
+START_TEST (adding_CC_and_CC_equals_CD)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "CC", secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "CC", resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_str_eq (resultNumeral, "CD");
+
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -201,6 +212,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(testCase, adding_VI_and_III_equals_IX);
     tcase_add_test(testCase, adding_XX_and_XX_equals_XL);
     tcase_add_test(testCase, adding_LX_and_XXX_equals_XC);
+    tcase_add_test(testCase, adding_CC_and_CC_equals_CD);
 
     suite_add_tcase(testSuite, testCase);
 
