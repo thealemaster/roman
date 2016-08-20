@@ -5,14 +5,19 @@ VPATH = lib test
 # Compiler flags set to most strict
 CFLAGS = -Wall -g
 
-# Place where header files for this project will go
-#INCLUDES = -I./include
-
 # Make sure the compiler knows where the libary lives
 LIBFLAGS = -L./lib
 
 # Libraries needed for this project (including the calculator library)
-LIBS = -lcheck_pic -lrt -lm -lroman_calculator
+LIBS = -lrt -lm -lroman_calculator
+
+# Make sure we have the right versions to support check
+
+PKG_CONFIG = $(shell which pkg-config)
+ifneq ($(PKG_CONFIG), "")
+CFLAGS += $(shell $(PKG_CONFIG) --cflags check)
+LIBS += $(shell $(PKG_CONFIG) --libs check)
+endif
 
 defaut : test
 
@@ -25,7 +30,7 @@ check_roman_calculator.o: check_roman_calculator.c
 test:	check_roman_calculator.o libroman_calculator.a
 	cd test;make
 	cd lib;make
-	$(CC) $(CFLAGS) $(INCLUDES) -o check_roman_calculator test/check_roman_calculator.o -pthread $(LIBFLAGS) $(LIBS)
+	$(CC) $(CFLAGS) -o check_roman_calculator test/check_roman_calculator.o -pthread $(LIBFLAGS) $(LIBS)
 
 clean:
 	-cd test;make clean
