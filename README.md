@@ -25,7 +25,10 @@ Programming Exercise for Pillar. Some caveats to throw out there:
   to detect this and include the right libs
 - Subtraction was an obvious extension to what had already
   been implemented for addition. The result is there is less
-  test coverage around subtraction
+  test coverage around subtraction. As to-do, more specific
+  subtraction tests could be added
+- After a second peer review, did some clean-up of the tests
+  and library code for readability and organization
 
 The solution implements the following user stories:
 
