@@ -118,7 +118,6 @@ int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, cha
 {
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
-  int numeralArrayIndex = 0;
 
   if ((firstConvertedNumeral = (parseDecimalFromRoman (firstNumeral))) == 0) {
       return (0);
@@ -138,12 +137,9 @@ int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, cha
   }
 
   /* Initialize the output string to NULLs */
-  numeralArrayIndex = 0;
 
-  while (numeralArrayIndex < MAX_ROMAN_NUMERAL_STRING_SIZE) {
-    resultNumeral [numeralArrayIndex] = '\0';
-    numeralArrayIndex++;
-  }
+  memset (resultNumeral, '\0', MAX_ROMAN_NUMERAL_STRING_SIZE);
+
   convertDecimalToRomanNumeral (firstConvertedNumeral + secondConvertedNumeral, resultNumeral);
 
   return (1);
@@ -153,7 +149,6 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
 {
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
-  int numeralArrayIndex = 0;
 
   if ((firstConvertedNumeral = (parseDecimalFromRoman (firstNumeral))) == 0) {
       return (0);
@@ -170,12 +165,8 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
   }
 
   /* Initialize the output string to NULLs */
-  numeralArrayIndex = 0;
+  memset (resultNumeral, '\0', MAX_ROMAN_NUMERAL_STRING_SIZE);
 
-  while (numeralArrayIndex < MAX_ROMAN_NUMERAL_STRING_SIZE) {
-    resultNumeral [numeralArrayIndex] = '\0';
-    numeralArrayIndex++;
-  }
   convertDecimalToRomanNumeral (firstConvertedNumeral - secondConvertedNumeral, resultNumeral);
 
   return (1);
