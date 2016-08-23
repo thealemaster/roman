@@ -160,7 +160,9 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
 
   /* If the resulting subtraction is less that or equal to 0, 
      we have an invalid number */
-  if (firstConvertedNumeral-secondConvertedNumeral <= 0) {
+  if (firstConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE || 
+      secondConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE ||
+      firstConvertedNumeral-secondConvertedNumeral <= 0) {
     return (0);
   }
 
