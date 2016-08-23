@@ -260,7 +260,7 @@ START_TEST (passing_invalid_roman_numeral_returns_error)
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
   statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
-  ck_assert_int_eq (statusReturned, 0);
+  ck_assert_int_eq (statusReturned, FAILURE);
 }
 END_TEST
 
@@ -284,7 +284,7 @@ START_TEST (adding_roman_numeral_greater_than_3999_returns_error)
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
   statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
-  ck_assert_int_eq (statusReturned, 0);
+  ck_assert_int_eq (statusReturned, FAILURE);
 }
 END_TEST
 
@@ -296,7 +296,7 @@ START_TEST (subtracting_roman_numeral_greater_than_3999_returns_error)
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
   statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
-  ck_assert_int_eq (statusReturned, 0);
+  ck_assert_int_eq (statusReturned, FAILURE);
 }
 END_TEST
 
@@ -308,7 +308,7 @@ START_TEST (subtracting_V_and_V_results_in_invalid_number)
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
   statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
-  ck_assert_int_eq (statusReturned, 0);
+  ck_assert_int_eq (statusReturned, FAILURE);
 
 }
 END_TEST
@@ -321,7 +321,7 @@ START_TEST (subtracting_VI_from_V_results_in_invalid_number)
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
   statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
-  ck_assert_int_eq (statusReturned, 0);
+  ck_assert_int_eq (statusReturned, FAILURE);
 
 }
 END_TEST

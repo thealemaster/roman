@@ -8,6 +8,9 @@
 #define MAX_ROMAN_NUMERAL_VALUE 3999
 #define MAX_ROMAN_NUMERAL_STRING_SIZE 20
 
+#define SUCCESS 0
+#define FAILURE -1
+
 extern int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral);
 
 extern int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral);

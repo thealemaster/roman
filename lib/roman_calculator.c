@@ -92,7 +92,7 @@ int parseDecimalFromRoman (const char *romanStringToConvert)
     /* If the number we get back is a 0, we have an invalid number */
 
     if (currentNumeral  == 0) {
-      return (0);
+      return (FAILURE);
     }
 
     nextNumeral = convertRomanNumeralToDecimal (toupper(romanStringToConvert[numeralArrayIndex+1]));
@@ -112,7 +112,7 @@ int parseDecimalFromRoman (const char *romanStringToConvert)
 
   /* If the number we parsed is larger than the MAX, it's an error */
   if (convertedNumeral > MAX_ROMAN_NUMERAL_VALUE) {
-    return (0);
+    return (FAILURE);
   }
 
   return (convertedNumeral);
@@ -124,18 +124,20 @@ int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, cha
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
 
-  if ((firstConvertedNumeral = (parseDecimalFromRoman (firstNumeral))) == 0) {
-      return (0);
+  if ((firstConvertedNumeral = 
+       (parseDecimalFromRoman (firstNumeral))) == FAILURE) {
+      return (FAILURE);
   }
 
-  if ((secondConvertedNumeral = (parseDecimalFromRoman (secondNumeral))) == 0) {
-      return (0);
+  if ((secondConvertedNumeral = 
+       (parseDecimalFromRoman (secondNumeral))) == FAILURE) {
+      return (FAILURE);
   }
 
   /* If both numbers added are greater than the MAX, return an error */
 
   if ((firstConvertedNumeral+secondConvertedNumeral) > MAX_ROMAN_NUMERAL_VALUE) {
-    return (0);
+    return (FAILURE);
   }
 
   /* Initialize the output string to NULLs */
@@ -144,7 +146,7 @@ int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, cha
 
   convertDecimalToRomanNumeral (firstConvertedNumeral + secondConvertedNumeral, resultNumeral);
 
-  return (1);
+  return (SUCCESS);
 }
 
 int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral)
@@ -152,18 +154,20 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
 
-  if ((firstConvertedNumeral = (parseDecimalFromRoman (firstNumeral))) == 0) {
-      return (0);
+  if ((firstConvertedNumeral =
+       (parseDecimalFromRoman (firstNumeral))) == FAILURE) {
+      return (FAILURE);
   }
 
-  if ((secondConvertedNumeral = (parseDecimalFromRoman (secondNumeral))) == 0) {
-      return (0);
+  if ((secondConvertedNumeral = 
+       (parseDecimalFromRoman (secondNumeral))) == FAILURE) {
+      return (FAILURE);
   }
 
   /* If the resulting subtraction is less that or equal to 0, 
      we have an invalid number and should return an error */
   if ((firstConvertedNumeral-secondConvertedNumeral) <= 0) {
-    return (0);
+    return (FAILURE);
   }
 
   /* Initialize the output string to NULLs */
@@ -171,5 +175,5 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
 
   convertDecimalToRomanNumeral (firstConvertedNumeral - secondConvertedNumeral, resultNumeral);
 
-  return (1);
+  return (SUCCESS);
 }
