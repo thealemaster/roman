@@ -110,6 +110,11 @@ int parseDecimalFromRoman (const char *romanStringToConvert)
 
   }
 
+  /* If the number we parsed is larger than the MAX, it's an error */
+  if (convertedNumeral > MAX_ROMAN_NUMERAL_VALUE) {
+    return (0);
+  }
+
   return (convertedNumeral);
 
 }
@@ -127,12 +132,9 @@ int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, cha
       return (0);
   }
 
-  /* If either number is greater than the max, or both numbers added are greater than
-     the max, return an error */
+  /* If both numbers added are greater than the MAX, return an error */
 
-  if (firstConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE || 
-      secondConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE ||
-      (firstConvertedNumeral+secondConvertedNumeral) > MAX_ROMAN_NUMERAL_VALUE) {
+  if ((firstConvertedNumeral+secondConvertedNumeral) > MAX_ROMAN_NUMERAL_VALUE) {
     return (0);
   }
 
@@ -159,10 +161,8 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
   }
 
   /* If the resulting subtraction is less that or equal to 0, 
-     we have an invalid number */
-  if (firstConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE || 
-      secondConvertedNumeral > MAX_ROMAN_NUMERAL_VALUE ||
-      firstConvertedNumeral-secondConvertedNumeral <= 0) {
+     we have an invalid number and should return an error */
+  if ((firstConvertedNumeral-secondConvertedNumeral) <= 0) {
     return (0);
   }
 
