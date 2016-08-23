@@ -124,13 +124,8 @@ int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, cha
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
 
-  if ((firstConvertedNumeral = 
-       (parseDecimalFromRoman (firstNumeral))) == FAILURE) {
-      return (FAILURE);
-  }
-
-  if ((secondConvertedNumeral = 
-       (parseDecimalFromRoman (secondNumeral))) == FAILURE) {
+  if ((firstConvertedNumeral = parseDecimalFromRoman (firstNumeral)) == FAILURE ||
+      (secondConvertedNumeral = parseDecimalFromRoman (secondNumeral)) == FAILURE) {
       return (FAILURE);
   }
 
@@ -154,13 +149,8 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
 
-  if ((firstConvertedNumeral =
-       (parseDecimalFromRoman (firstNumeral))) == FAILURE) {
-      return (FAILURE);
-  }
-
-  if ((secondConvertedNumeral = 
-       (parseDecimalFromRoman (secondNumeral))) == FAILURE) {
+  if ((firstConvertedNumeral = parseDecimalFromRoman (firstNumeral)) == FAILURE ||
+      (secondConvertedNumeral = parseDecimalFromRoman (secondNumeral)) == FAILURE) {
       return (FAILURE);
   }
 
