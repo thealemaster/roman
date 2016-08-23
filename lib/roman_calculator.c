@@ -80,7 +80,7 @@ void convertDecimalToRomanNumeral (int decimalToConvert, char *convertedNumeral)
 
 }
 
-int parseDecimalFromRoman (char *romanStringToConvert)
+int parseDecimalFromRoman (const char *romanStringToConvert)
 {
   int convertedNumeral = 0;
   int numeralArrayIndex = 0;
@@ -114,7 +114,7 @@ int parseDecimalFromRoman (char *romanStringToConvert)
 
 }
  
-int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral)
+int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral)
 {
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
@@ -149,7 +149,7 @@ int add_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNume
   return (1);
 }
 
-int subtract_roman_numerals (char *firstNumeral, char *secondNumeral, char*resultNumeral)
+int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral)
 {
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
