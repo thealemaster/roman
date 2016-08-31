@@ -40,3 +40,8 @@ User Story: Subtraction
 As a Roman bookkeeper, I want to be able to subtract one number from
  another. So that I can do my work faster and with fewer mathematical errors.
 
+To build the solution and run the tests, from the top-level directory:
+   -> make
+
+To run the tests stand-alone, from the top-level directory:
+   -> ./check_roman_calculator
