@@ -31,6 +31,8 @@ test:	check_roman_calculator.o libroman_calculator.a
 	cd test;make
 	cd lib;make
 	$(CC) $(CFLAGS) -o check_roman_calculator test/check_roman_calculator.o -pthread $(LIBFLAGS) $(LIBS)
+# Now run the tests
+	./check_roman_calculator
 
 clean:
 	-cd test;make clean
