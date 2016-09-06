@@ -102,13 +102,13 @@ int parseDecimalFromRoman (const char *romanStringToConvert)
       convertedNumeral = convertedNumeral + nextNumeral - currentNumeral; 
 
       /* If we've just used 2 roman digits, update the index accordingly */
-      numeralArrayIndex = numeralArrayIndex + 2;
+      numeralArrayIndex++;
     }
     else {
       convertedNumeral += currentNumeral;
-      numeralArrayIndex++;
-    }
+      }
 
+    numeralArrayIndex++;
   }
 
   /* If the number we parsed is larger than the MAX, it's an error */
