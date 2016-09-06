@@ -34,7 +34,7 @@ int convertRomanNumeralToDecimal (char romanNumeralToConvert)
     convertedRomanNumeral = 1000;
     break;
   default:
-    /* If it's not already one of the numbers above, it's an error */
+    /* If it's not already one of the numbers above, or a NULL, it's an error */
     convertedRomanNumeral = 0;
     break;
   }
@@ -85,9 +85,10 @@ int parseDecimalFromRoman (const char *romanStringToConvert)
   int convertedNumeral = 0;
   int numeralArrayIndex = 0;
   int currentNumeral = 0, nextNumeral = 0;
+  char currentRomanCharacter = '\0';
 
-  while (toupper(romanStringToConvert[numeralArrayIndex])) {
-    currentNumeral = convertRomanNumeralToDecimal (toupper(romanStringToConvert[numeralArrayIndex]));
+  while ((currentRomanCharacter = toupper(romanStringToConvert[numeralArrayIndex]))) {
+    currentNumeral = convertRomanNumeralToDecimal (currentRomanCharacter);
 
     /* If the number we get back is a 0, we have an invalid number */
 
