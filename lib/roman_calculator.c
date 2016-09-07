@@ -131,9 +131,11 @@ int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, cha
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
 
+  /* Make sure our arguments are valid */
   if (firstNumeral == '\0' ||
       secondNumeral  == '\0' ||
-      resultNumeral == '\0') {
+      resultNumeral == '\0' ||
+      maxResultNumeralBufferSize != MAX_ROMAN_NUMERAL_STRING_SIZE) {
     return (FAILURE);
   }
 
