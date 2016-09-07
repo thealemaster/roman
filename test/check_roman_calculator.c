@@ -420,6 +420,19 @@ START_TEST (passing_add_result_size_not_equal_to_MAX_ROMAN_NUMERAL_STRING_SIZE_r
 }
 END_TEST
 
+START_TEST (passing_subtract_result_size_not_equal_to_MAX_ROMAN_NUMERAL_STRING_SIZE_results_in_error)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "VI", 
+    secondNumeral  [MAX_ROMAN_NUMERAL_STRING_SIZE] = "V",
+    resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE-1);
+  ck_assert_int_eq (statusReturned, FAILURE);
+
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -468,6 +481,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(validationTestCases, passing_NULL_to_add_as_second_argument_results_in_error);
     tcase_add_test(validationTestCases, passing_NULL_to_add_as_result_buffer_results_in_error);
     tcase_add_test(validationTestCases, passing_add_result_size_not_equal_to_MAX_ROMAN_NUMERAL_STRING_SIZE_results_in_error);
+    tcase_add_test(validationTestCases, passing_subtract_result_size_not_equal_to_MAX_ROMAN_NUMERAL_STRING_SIZE_results_in_error);
 
     suite_add_tcase(testSuite, additionTestCases);
     suite_add_tcase(testSuite, subtractionTestCases);

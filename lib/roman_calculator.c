@@ -166,7 +166,8 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
 
   if (firstNumeral == '\0' ||
       secondNumeral  == '\0' ||
-      resultNumeral == '\0') {
+      resultNumeral == '\0' ||
+      maxResultNumeralBufferSize != MAX_ROMAN_NUMERAL_STRING_SIZE) {
     return (FAILURE);
   }
 
