@@ -13,6 +13,6 @@
 
 extern int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral, const int maxResultNumeralBufferSize);
 
-extern int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral);
+extern int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral, const int maxResultNumeralBufferSize);
 
 #endif /*CHECK_ROMAN_H */

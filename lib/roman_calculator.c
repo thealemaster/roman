@@ -157,7 +157,7 @@ int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, cha
   return (SUCCESS);
 }
 
-int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral)
+int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral, const int maxResultNumeralBufferSize)
 {
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;

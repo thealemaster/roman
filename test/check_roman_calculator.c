@@ -232,7 +232,7 @@ START_TEST (subtracting_I_from_X_results_in_IX)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "I", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "IX");
 
 }
@@ -295,7 +295,7 @@ START_TEST (subtracting_roman_numeral_greater_than_3999_returns_error)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "I", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_int_eq (statusReturned, FAILURE);
 }
 END_TEST
@@ -307,7 +307,7 @@ START_TEST (subtracting_V_and_V_results_in_invalid_number)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "V", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_int_eq (statusReturned, FAILURE);
 
 }
@@ -320,7 +320,7 @@ START_TEST (subtracting_VI_from_V_results_in_invalid_number)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "VI", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_int_eq (statusReturned, FAILURE);
 
 }
@@ -333,7 +333,8 @@ START_TEST (passing_NULL_to_subtract_as_first_argument_results_in_error)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "VI", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
+
   ck_assert_int_eq (statusReturned, FAILURE);
 
 }
@@ -346,7 +347,8 @@ START_TEST (passing_NULL_to_subtract_as_second_argument_results_in_error)
     *secondNumeral = '\0', 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
+
   ck_assert_int_eq (statusReturned, FAILURE);
 
 }
@@ -359,7 +361,8 @@ START_TEST (passing_NULL_to_subtract_as_result_buffer_results_in_error)
     secondNumeral  [MAX_ROMAN_NUMERAL_STRING_SIZE] = "V",
     *resultNumeral  = '\0';
 
-  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
+
   ck_assert_int_eq (statusReturned, FAILURE);
 
 }
