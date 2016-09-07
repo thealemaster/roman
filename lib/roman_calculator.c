@@ -156,6 +156,10 @@ int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;
 
+  if (firstNumeral == '\0') {
+    return (FAILURE);
+  }
+
   if ((firstConvertedNumeral = parseDecimalFromRoman (firstNumeral)) == FAILURE ||
       (secondConvertedNumeral = parseDecimalFromRoman (secondNumeral)) == FAILURE) {
       return (FAILURE);
