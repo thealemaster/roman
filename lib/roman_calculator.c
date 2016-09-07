@@ -84,11 +84,19 @@ int parseDecimalFromRoman (const char *romanStringToConvert)
 {
   int convertedNumeral = 0;
   int numeralArrayIndex = 0;
-  int currentNumeral = 0, nextNumeral = 0;
-  char currentRomanCharacter = '\0';
+  int currentNumeral = 0, priorNumeral = 0;
 
-  while ((currentRomanCharacter = toupper(romanStringToConvert[numeralArrayIndex]))) {
-    currentNumeral = convertRomanNumeralToDecimal (currentRomanCharacter);
+  /*
+    Start at the end and work back. This allows us to make only one call to
+     toupper and simplifies the logic to only add or subtract, based on what
+     the prior numeral was
+  */
+
+  numeralArrayIndex = strlen (romanStringToConvert);
+
+  while (numeralArrayIndex > 0) {
+
+    currentNumeral = convertRomanNumeralToDecimal(toupper(romanStringToConvert[numeralArrayIndex-1]));
 
     /* If the number we get back is a 0, we have an invalid number */
 
@@ -96,19 +104,17 @@ int parseDecimalFromRoman (const char *romanStringToConvert)
       return (FAILURE);
     }
 
-    nextNumeral = convertRomanNumeralToDecimal (toupper(romanStringToConvert[numeralArrayIndex+1]));
+    /* If our current number is less than our last one, we need to subtract */
 
-    if (currentNumeral < nextNumeral) {
-      convertedNumeral = convertedNumeral + nextNumeral - currentNumeral; 
-
-      /* If we've just used 2 roman digits, update the index accordingly */
-      numeralArrayIndex++;
+    if (currentNumeral < priorNumeral) {
+      convertedNumeral -= currentNumeral;
     }
     else {
       convertedNumeral += currentNumeral;
-      }
+    }
 
-    numeralArrayIndex++;
+    priorNumeral = currentNumeral;
+    numeralArrayIndex--;
   }
 
   /* If the number we parsed is larger than the MAX, it's an error */
