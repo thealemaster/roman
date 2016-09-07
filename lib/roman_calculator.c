@@ -126,7 +126,7 @@ int parseDecimalFromRoman (const char *romanStringToConvert)
 
 }
  
-int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral)
+int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral, const int maxResultNumeralBufferSize)
 {
 
   int firstConvertedNumeral = 0, secondConvertedNumeral = 0;

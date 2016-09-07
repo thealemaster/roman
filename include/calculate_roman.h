@@ -11,7 +11,7 @@
 #define SUCCESS 0
 #define FAILURE -1
 
-extern int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral);
+extern int add_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral, const int maxResultNumeralBufferSize);
 
 extern int subtract_roman_numerals (const char *firstNumeral, const char *secondNumeral, char*resultNumeral);
 

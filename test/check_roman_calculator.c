@@ -12,7 +12,7 @@ START_TEST (adding_I_and_I_equals_II)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "I",
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "II");
 }
 END_TEST
@@ -24,7 +24,7 @@ START_TEST (adding_I_and_II_equals_III)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "II", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "III");
 }
 END_TEST
@@ -36,7 +36,7 @@ START_TEST (adding_II_and_I_equals_III)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "I", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "III");
 }
 END_TEST
@@ -48,7 +48,7 @@ START_TEST (adding_M_and_M_equals_MM)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "M", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "MM");
 
 }
@@ -61,7 +61,7 @@ START_TEST (adding_CCC_and_CC_equals_D)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "CC", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "D");
 
 }
@@ -74,7 +74,7 @@ START_TEST (adding_C_and_C_equals_CC)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "C", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "CC");
 
 }
@@ -87,7 +87,7 @@ START_TEST (adding_XXX_and_XX_equals_L)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "XX", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "L");
 
 }
@@ -100,7 +100,7 @@ START_TEST (adding_X_and_X_equals_XX)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "X", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "XX");
 
 }
@@ -113,7 +113,7 @@ START_TEST (adding_II_and_II_equals_IV)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "II", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "IV");
 
 }
@@ -126,7 +126,7 @@ START_TEST (adding_VI_and_III_equals_IX)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "III", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "IX");
 
 }
@@ -139,7 +139,7 @@ START_TEST (adding_XX_and_XX_equals_XL)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "XX", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "XL");
 
 }
@@ -152,7 +152,7 @@ START_TEST (adding_LX_and_XXX_equals_XC)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "XXX", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "XC");
 
 }
@@ -165,7 +165,7 @@ START_TEST (adding_CC_and_CC_equals_CD)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "CC", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "CD");
 
 }
@@ -178,7 +178,7 @@ START_TEST (adding_CD_and_D_equals_CM)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "D", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "CM");
 
 }
@@ -191,7 +191,7 @@ START_TEST (adding_D_and_D_equals_M)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "D", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "M");
 
 }
@@ -204,7 +204,7 @@ START_TEST (adding_L_and_L_equals_C)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "L", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "C");
 
 }
@@ -217,7 +217,7 @@ START_TEST (adding_V_and_V_equals_X)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "V", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "X");
 
 }
@@ -247,7 +247,7 @@ START_TEST (check_lower_case_by_adding_i_and_i_to_equal_II)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "i\0",
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "II");
 }
 END_TEST
@@ -259,7 +259,7 @@ START_TEST (passing_invalid_roman_numeral_returns_error)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "I", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_int_eq (statusReturned, FAILURE);
 }
 END_TEST
@@ -271,7 +271,7 @@ START_TEST (lesser_numeral_before_greater_numeral_means_subtraction)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "I", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_str_eq (resultNumeral, "V");
 }
 END_TEST
@@ -283,7 +283,7 @@ START_TEST (adding_roman_numeral_greater_than_3999_returns_error)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "I", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_int_eq (statusReturned, FAILURE);
 }
 END_TEST
@@ -372,7 +372,7 @@ START_TEST (passing_NULL_to_add_as_first_argument_results_in_error)
     secondNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "VI", 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_int_eq (statusReturned, FAILURE);
 
 }
@@ -385,7 +385,7 @@ START_TEST (passing_NULL_to_add_as_second_argument_results_in_error)
     *secondNumeral = '\0', 
     resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_int_eq (statusReturned, FAILURE);
 
 }
@@ -398,7 +398,7 @@ START_TEST (passing_NULL_to_add_as_result_buffer_results_in_error)
     secondNumeral  [MAX_ROMAN_NUMERAL_STRING_SIZE] = "V",
     *resultNumeral  = '\0';
 
-  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  statusReturned = add_roman_numerals (firstNumeral, secondNumeral, resultNumeral, MAX_ROMAN_NUMERAL_STRING_SIZE);
   ck_assert_int_eq (statusReturned, FAILURE);
 
 }
