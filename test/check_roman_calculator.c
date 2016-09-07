@@ -339,6 +339,19 @@ START_TEST (passing_NULL_to_subtract_as_first_argument_results_in_error)
 }
 END_TEST
 
+START_TEST (passing_NULL_to_subtract_as_second_argument_results_in_error)
+{
+  int statusReturned;
+  char firstNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE] = "VI", 
+    *secondNumeral = '\0', 
+    resultNumeral [MAX_ROMAN_NUMERAL_STRING_SIZE];
+
+  statusReturned = subtract_roman_numerals (firstNumeral, secondNumeral, resultNumeral);
+  ck_assert_int_eq (statusReturned, FAILURE);
+
+}
+END_TEST
+
 Suite * roman_calculator_test_suite(void)
 {
     Suite *testSuite;
@@ -381,6 +394,7 @@ Suite * roman_calculator_test_suite(void)
     tcase_add_test(validationTestCases, subtracting_V_and_V_results_in_invalid_number);
     tcase_add_test(validationTestCases, subtracting_VI_from_V_results_in_invalid_number);
     tcase_add_test(validationTestCases, passing_NULL_to_subtract_as_first_argument_results_in_error);
+    tcase_add_test(validationTestCases, passing_NULL_to_subtract_as_second_argument_results_in_error);
 
     suite_add_tcase(testSuite, additionTestCases);
     suite_add_tcase(testSuite, subtractionTestCases);
