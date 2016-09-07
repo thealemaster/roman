@@ -45,3 +45,10 @@ To build the solution and run the tests, from the top-level directory:
 
 To run the tests stand-alone, from the top-level directory:
    -> ./check_roman_calculator
+
+Use of the library:
+- Please review the calculate_roman.h file in the include directory
+  for public functions and their parameters
+- NOTE: both functions assume that the size of the output buffer
+  will be the same as MAX_ROMAN_NUMERAL_STRING_SIZE. If that is not
+  the case, an error will be returned
